@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="Admin_Dashboard.css">
+</head>
+<body>
+  <div class="dashboard">
+    
+    <header>
+      <h1>Admin Dashboard</h1>
+      <label>
+        <input type="checkbox" id="themeToggle"> Dark Mode
+      </label>
+    </header>
+
+    <!-- Sidebar -->
+    <aside>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Users</a></li>
+          <li><a href="#">Settings</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main>
+      <h2>Welcome, Admin!</h2>
+      <p>This is the main content area. Add charts, tables, or reports here.</p>
+    </main>
+
+    <footer>
+      <p>© 2025 Admin Panel</p>
+    </footer>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    toggle.addEventListener('change', () => {
+      document.body.classList.toggle('dark-mode', toggle.checked);
+    });
+  </script>
+</body>
+</html>
