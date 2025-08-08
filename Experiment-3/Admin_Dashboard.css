@@ -69,5 +69,18 @@ body {
   --text: #fff;
   --header-footer: #222;
   --sidebar: #333;
-  --link: lightblue;
+  --link: lightblue;
+}
+
+/*CSS for checkbox dark mode toggle */
+#dark-toggle {
+  display: none;
+}
+
+#dark-toggle:checked ~ .dashboard {
+  --bg: #111;
+  --text: #fff;
+  --header-footer: #222;
+  --sidebar: #333;
+  --link: lightblue;
 }
