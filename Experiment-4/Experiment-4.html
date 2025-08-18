@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Live Character Counter</title>
+    <style>
+        body{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            flex-direction:column;
+            height:100vh;
+            font-family:Arial, sans-serif;
+        }
+        .box{
+            width:700px;
+            border:2px solid black;
+            padding:40px;
+            margin:20px;
+            text-align:center;
+        }
+        textarea{
+            width:90%;
+            height:150px;
+            padding:10px;
+            font-size:16px;
+            resize:none;
+            border:2px solid #ccc;  
+        }
+        textarea:focus{
+            outline:none;
+            border:2px solid #ccc;  
+        }
+        p{
+            font-weight:bold;
+        }
+        #count{
+            font-weight:bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>Live Character Counter</h2>
+
+    <textarea id="textBox" placeholder="Start typing 23BAI70082..."></textarea>
+    <p>Characters: <span id="count">0</span></p>
+    <button onclick="add()">Click</button>
+
+    <script>
+        const textTag = document.getElementById("textBox");
+        const countTag = document.getElementById("count");
+
+        function add() {
+            const len = textTag.value.length;
+            countTag.innerText = len;
+        }
+    </script>
+</div>
+
+</body>
+</html>
