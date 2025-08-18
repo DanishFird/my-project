@@ -1,0 +1,32 @@
+Tools & Technologies Used:
+
+→ Mainly HTML and JavaScript
+→ Basic CSS to make the page visually clean and attractive
+
+Description:
+
+→ Created a webpage demonstrating a JavaScript object (documents) to represent HTML elements with properties and methods.
+→ The documents object contains objects representing HTML elements with properties like tag name, content, and a reference to the element on the page.
+→ Methods such as createElement(), updateContent(), and deleteElement() allow you to dynamically add, update, and remove elements on the webpage.
+→ A <textarea> is used to input text, and the character count updates automatically as the user types. 
+   This is implemented using the following event-driven JavaScript:
+            const textTag = document.getElementById("textBox");
+            const countTag = document.getElementById("count");
+
+            textTag.addEventListener("input", () => {
+    countTag.innerText = textTag.value.length;
+            });
+
+
+→ JavaScript finds and manipulates elements dynamically on the page using their references from the documents object, for example:
+      const divTag = document.getElementsByTagName("div")[0];
+
+→ All updates happen automatically via events, without using buttons, making the webpage more interactive and responsive.
+→ Basic CSS is applied to make the layout centered, clean, and visually appealing.
+
+Learning Outcomes:
+
+→ Learned how to represent HTML elements as JavaScript objects with properties and methods.
+→ Practiced interacting with webpage elements dynamically using JavaScript.
+→ Improved understanding of event-driven programming, such as using the input event to update the character count in real-time.
+→ Gained experience in integrating HTML, CSS, and JavaScript to create interactive and user-friendly webpages.

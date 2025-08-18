@@ -45,18 +45,16 @@
 
     <textarea id="textBox" placeholder="Start typing 23BAI70082..."></textarea>
     <p>Characters: <span id="count">0</span></p>
-    <button onclick="add()">Click</button>
-
-    <script>
-        const textTag = document.getElementById("textBox");
-        const countTag = document.getElementById("count");
-
-        function add() {
-            const len = textTag.value.length;
-            countTag.innerText = len;
-        }
-    </script>
 </div>
+
+<script>
+    const textTag = document.getElementById("textBox");
+    const countTag = document.getElementById("count");
+
+    textTag.addEventListener("input", () => {
+        countTag.innerText = textTag.value.length;
+    });
+</script>
 
 </body>
 </html>
