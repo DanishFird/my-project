@@ -1,0 +1,25 @@
+Tools & Technologies Used:
+→ Mainly HTML and JavaScript
+→ Basic CSS to make the page clean and visually appealing
+
+Description:
+
+→ Created a webpage demonstrating a Product List Filter using JavaScript and dynamic DOM manipulation.
+→ A predefined array of product objects (with name and category properties) is used as the data source.
+→ A <select> dropdown allows the user to filter products based on category (All, Clothing, Electronics, Books).
+→ The renderProducts() function dynamically updates the product display area by:
+
+Clearing old items (productItems.innerHTML = "")
+
+Filtering products based on the selected category using filter()
+
+Creating new <div> elements with class "product-entry" for each filtered product and appending them to the DOM.
+→ An event listener on the <select> dropdown (change event) ensures the product list updates automatically whenever the user selects a category.
+→ Initially, all products are displayed by calling renderProducts("All") on page load.
+
+Learning Outcomes:
+
+→ Learned how to filter and display data dynamically using JavaScript arrays and DOM manipulation.
+→ Practiced using event-driven programming (listening to dropdown change events to trigger updates).
+→ Understood how to separate data (products array) from the UI (rendered product list) for better structure.
+→ Gained experience integrating HTML (structure), CSS (styling), and JavaScript (logic) to build an interactive and user-friendly webpage.

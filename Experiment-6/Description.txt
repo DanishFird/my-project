@@ -1,0 +1,27 @@
+Tools & Technologies Used:
+→ HTML for structure
+→ JavaScript for event handling and drawing logic
+→ SVG (Scalable Vector Graphics) for rendering shapes dynamically
+→ CSS for basic styling and layout
+
+Description:
+
+→ Created a simple SVG Drawing Tool that allows the user to draw freehand lines on an SVG canvas using the mouse.
+→ A <svg> element acts as the drawing area, styled with borders and a crosshair cursor for better user interaction.
+→ JavaScript tracks the mouse events:
+
+mousedown: Starts drawing a new line by creating an SVG <polyline> element and setting the initial point.
+
+mousemove: Continuously adds points to the <polyline> as the mouse moves, giving a freehand drawing effect.
+
+mouseup / mouseleave: Stops the drawing process so no more points are added.
+→ A helper function getMousePosition() is used to calculate the mouse coordinates relative to the SVG canvas, ensuring correct placement of drawn points.
+→ Each line is drawn with attributes such as stroke="deepskyblue", stroke-width="2", and fill="none" for visibility.
+→ The logic makes use of document.createElementNS() to properly create SVG elements in the correct namespace.
+
+Learning Outcomes:
+
+→ Learned how to use SVG elements dynamically with JavaScript.
+→ Practiced handling mouse events (mousedown, mousemove, mouseup, mouseleave) to implement drawing features.
+→ Understood the importance of coordinate calculations using getBoundingClientRect() to map screen positions to SVG positions.
+→ Gained experience in interactive graphics programming by combining HTML, CSS, JavaScript, and SVG.
