@@ -1,25 +1,48 @@
-Tools & Technologies Used:
-→ Mainly HTML and JavaScript
-→ Basic CSS to make the page clean and visually appealing
+JavaScript :
 
-Description:
+1: const products = [
+    { name: "T-Shirt", category: "Clothing" },
+    { name: "Jeans", category: "Clothing" },
+    { name: "Headphones", category: "Electronics" },
+    { name: "Smartphone", category: "Electronics" },
+    { name: "Novel", category: "Books" },
+    { name: "Cookbook", category: "Books" }
+];
+Here I made an array called products.Each item has a name like T-Shirt and a category like "Clothing.
 
-→ Created a webpage demonstrating a Product List Filter using JavaScript and dynamic DOM manipulation.
-→ A predefined array of product objects (with name and category properties) is used as the data source.
-→ A <select> dropdown allows the user to filter products based on category (All, Clothing, Electronics, Books).
-→ The renderProducts() function dynamically updates the product display area by:
 
-Clearing old items (productItems.innerHTML = "")
 
-Filtering products based on the selected category using filter()
+2: const categorySelect = document.getElementById("categorySelect");
+const productItems = document.getElementById("productItems");
 
-Creating new <div> elements with class "product-entry" for each filtered product and appending them to the DOM.
-→ An event listener on the <select> dropdown (change event) ensures the product list updates automatically whenever the user selects a category.
-→ Initially, all products are displayed by calling renderProducts("All") on page load.
+Then I took two things from HTML: The dropdown menu so I know which category is selected.The empty box 
+where products will be shown.
 
-Learning Outcomes:
 
-→ Learned how to filter and display data dynamically using JavaScript arrays and DOM manipulation.
-→ Practiced using event-driven programming (listening to dropdown change events to trigger updates).
-→ Understood how to separate data (products array) from the UI (rendered product list) for better structure.
-→ Gained experience integrating HTML (structure), CSS (styling), and JavaScript (logic) to build an interactive and user-friendly webpage.
+3: function renderProducts(category) {
+    productItems.innerHTML = "";
+    let filtered = (category === "All")
+        ? products
+        : products.filter(product => product.category === category);
+
+    filtered.forEach(product => {
+        const div = document.createElement("div");
+        div.className = "product-entry";
+        div.textContent = product.name;
+        productItems.appendChild(div);
+    });
+}
+I wrote a function called renderProducts.This function clears the box first.If the dropdown says All it
+shows everything. If a category like Clothing is selected it only shows products from that category.For
+each product it creates a small box with the product’s name and puts it inside the main box.
+
+
+4: categorySelect.addEventListener("change", () => {
+    renderProducts(categorySelect.value);
+});
+I added an event listener to the dropdown.This means whenever the user changes the category the function 
+runs again and updates the product list.
+
+
+5: renderProducts("All");
+At the end I called the function one time with All so that all products are visible when the page first loads.
