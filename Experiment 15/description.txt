@@ -5,6 +5,7 @@ This project is a simple e-commerce backend built using:
   - Mongoose (for MongoDB object modeling)
   - Body-Parser (for parsing incoming JSON requests)
 
+
  Features:
   1. Create a new product with multiple variants (color, size, stock).
   2. Get all products or filter products:
