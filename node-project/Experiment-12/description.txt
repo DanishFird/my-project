@@ -1,62 +1,38 @@
-Concurrent Ticket Booking System with Seat Locking and Confirmation :
+Experiment 12 – Seat Booking Lock API (Express)
 
-1 Objective :
+Overview
+Express server that simulates seat booking with a lock-and-confirm flow. Seats can be locked for a short time window and then confirmed to book. State is kept in memory.
 
-Learn to manage concurrent requests in Node.js.
-Implement a seat locking mechanism to prevent double booking.
-Understand in-memory state management and simple concurrency control.
+How to Run
+1) Open a terminal in this folder.
+2) Install dependencies:
+   npm install
+3) Start the server:
+   npm start
+4) The API listens on http://localhost:3000
 
+Key Behavior
+- A lock lasts for 60 seconds. If not confirmed within that time, the lock expires and the seat becomes available again.
 
-2. Description of the Code : 
+Endpoints
+- GET /seats
+  Returns the current status of all seats: available | locked | booked.
 
-Initialize seats:
-Each seat has properties: id, status (available, locked, booked), lockedBy (user), lockExpires (timestamp).
+- POST /lock/:seatId
+  Locks the seat if available. Fails if already booked or currently locked by another user.
 
-Unlock expired seats:
-unlockExpiredSeats() runs before every request to release any seat locks that expired (1 minute).
+- POST /confirm/:seatId
+  Confirms a previously locked seat (must be within the lock window). Books the seat on success.
 
-GET /seats:
-Returns a list of all available seats after unlocking expired ones.
+Example Requests (curl)
+# view all seats
+curl http://localhost:3000/seats
 
-POST /seats/lock:
-Locks a seat for a user for 1 minute.
-Returns error if seat is already locked or booked.
+# lock seat 1
+curl -X POST http://localhost:3000/lock/1
 
-POST /seats/confirm:
-Confirms the booking for a seat locked by the user.
-Returns error if seat is locked by another user or already booked.
+# confirm seat 1 (within 60 seconds)
+curl -X POST http://localhost:3000/confirm/1
 
-Start server:
-Server runs on port 3000.
-
-
-
-3. Key Concepts Learned :
-
-Handling concurrent requests safely in a Node.js API.
-Implementing a seat locking mechanism with expiry.
-Using in-memory data structures to manage state.
-Returning proper success/error messages for different scenarios.
-Practicing RESTful API design with Express.js.
-
-
-
-4. Example API Usage : 
-
-a : Check available seats:
-GET /seats
-
-
-b : Lock a seat for Alice:
-POST /seats/lock
-{ "seatId": 1, "user": "Alice" }
-
-
-c : Confirm booking for Alice:
-POST /seats/confirm
-{ "seatId": 1, "user": "Alice" }
-
-
-d : Attempt to lock already locked seat:
-Returns:
-{ "message": "Seat 1 is already locked" }
+Notes
+- This demo uses in-memory data and resets on server restart.
